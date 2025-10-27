@@ -34,6 +34,87 @@ Il met en œuvre toutes les **bonnes pratiques modernes** :
 
 ---
 
+## 💻 Environnement de développement
+
+## Système d'exploitation
+- **Ubuntu 22.04+** (ou toute distribution Linux compatible)
+
+## Prérequis
+- **Java JDK 17+**
+- **Maven 3.8+**
+- **PostgreSQL 18**
+- **pgAdmin 4** (optionnel, pour l'administration graphique)
+
+---
+
+## Script 1 : Installation de PostgreSQL 18
+
+Créez le fichier resources/install-postgresql.sh :
+
+```
+#!/bin/bash
+# Installation de PostgreSQL 18 sur Ubuntu
+
+# Installation des packages nécessaires
+sudo apt install curl ca-certificates
+sudo install -d /usr/share/postgresql-common/pgdg
+sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
+# Configuration du dépôt PostgreSQL
+. /etc/os-release
+sudo sh -c "echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $VERSION_CODENAME-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+
+# Installation de PostgreSQL 18
+sudo apt update
+sudo apt install postgresql-18
+```
+## Exécution :
+
+```
+chmod +x resources/install-postgresql.sh
+./resources/install-postgresql.sh
+```
+
+## Script 2 : Installation de pgAdmin 4
+
+Créez le fichier resources/install-pgadmin.sh :
+
+```
+#!/bin/bash
+# Installation de pgAdmin 4 sur Ubuntu
+
+# Installation de la clé publique du dépôt
+curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+
+# Configuration du dépôt pgAdmin
+sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+# Installation complète (desktop + web)
+sudo apt install pgadmin4
+
+# Configuration du serveur web
+sudo /usr/pgadmin4/bin/setup-web.sh
+```
+
+## Exécution :
+
+```
+chmod +x resources/install-pgadmin.sh
+./resources/install-pgadmin.sh
+```
+
+## Options d'installation :
+
+- Desktop uniquement : ``sudo apt install pgadmin4-desktop``
+- Web uniquement : ``sudo apt install pgadmin4-web``
+
+---
+
+## 📦 Installation de l'environnement
+
+Des scripts d'installation sont fournis dans le dossier reources/ pour automatiser la configuration de l'environnement.
+
+
 ## 🏗️ Structure du projet
 
 ```
