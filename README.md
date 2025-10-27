@@ -39,7 +39,7 @@ Il met en œuvre toutes les **bonnes pratiques modernes** :
 ## Système d'exploitation
 - **Ubuntu 22.04+** (ou toute distribution Linux compatible)
 
-## Prérequis
+###  Prérequis
 - **Java JDK 17+**
 - **Maven 3.8+**
 - **PostgreSQL 18**
@@ -47,7 +47,7 @@ Il met en œuvre toutes les **bonnes pratiques modernes** :
 
 ---
 
-## Script 1 : Installation de PostgreSQL 18
+### Script 1 : Installation de PostgreSQL 18
 
 Créez le fichier resources/install-postgresql.sh :
 
@@ -68,14 +68,14 @@ sudo sh -c "echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresq
 sudo apt update
 sudo apt install postgresql-18
 ```
-## Exécution :
+### Exécution :
 
 ```
 chmod +x resources/install-postgresql.sh
 ./resources/install-postgresql.sh
 ```
 
-## Script 2 : Installation de pgAdmin 4
+### Script 2 : Installation de pgAdmin 4
 
 Créez le fichier resources/install-pgadmin.sh :
 
@@ -96,14 +96,14 @@ sudo apt install pgadmin4
 sudo /usr/pgadmin4/bin/setup-web.sh
 ```
 
-## Exécution :
+### Exécution :
 
 ```
 chmod +x resources/install-pgadmin.sh
 ./resources/install-pgadmin.sh
 ```
 
-## Options d'installation :
+### Options d'installation :
 
 - Desktop uniquement : ``sudo apt install pgadmin4-desktop``
 - Web uniquement : ``sudo apt install pgadmin4-web``
