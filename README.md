@@ -37,9 +37,11 @@ Il met en œuvre toutes les **bonnes pratiques modernes** :
 ## 💻 Environnement de développement
 
 ### Système d'exploitation
+
 - **Ubuntu 22.04+** (ou toute distribution Linux compatible)
 
-### Prérequis
+### Prérequis
+
 - **Java JDK 17+**
 - **Maven 3.8+**
 - **PostgreSQL 18**
