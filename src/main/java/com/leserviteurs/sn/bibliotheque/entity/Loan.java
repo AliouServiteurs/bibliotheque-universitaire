@@ -17,7 +17,7 @@ import lombok.Data;
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private Date dateEmprunt;
     private Date dateRetourPrevue;
     private Date dateRetourReelle;
