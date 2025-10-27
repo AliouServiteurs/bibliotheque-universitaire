@@ -1,3 +1,8 @@
+#! /bin/bash
+#installation de postgresql 18 sur une machine Ubuntu
+# Setup the repository
+# Install the necessary packages
+
 sudo apt install curl ca-certificates
 sudo install -d /usr/share/postgresql-common/pgdg
 sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc
